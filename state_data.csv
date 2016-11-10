@@ -1,0 +1,52 @@
+id,code,name,pop,votes
+1,AL,Alabama,4858979,9
+2,AK,Alaska,738432,3
+4,AZ,Arizona,6828065,11
+5,AR,Arkansas,2978204,6
+6,CA,California,39144818,55
+8,CO,Colorado,5456574,9
+9,CT,Connecticut,3590886,7
+10,DE,Delaware,945934,3
+11,DC,District of Columbia,672228,3
+12,FL,Florida,20271272,29
+13,GA,Georgia,10214860,16
+15,HI,Hawaii,1431603,4
+16,ID,Idaho,1654930,4
+17,IL,Illinois,12859995,20
+18,IN,Indiana,6619680,11
+19,IA,Iowa,3123899,6
+20,KS,Kansas,2911641,6
+21,KY,Kentucky,4425092,8
+22,LA,Louisiana,4670724,8
+23,ME,Maine,1329328,4
+24,MD,Maryland,6006401,10
+25,MA,Massachusetts,6794422,11
+26,MI,Michigan,9922576,16
+27,MN,Minnesota,5489594,10
+28,MS,Mississippi,2992333,6
+29,MO,Missouri,6083672,10
+30,MT,Montana,1032949,3
+31,NE,Nebraska,1896190,5
+32,NV,Nevada,2890845,6
+33,NH,New Hampshire,1330608,4
+34,NJ,New Jersey,8958013,14
+35,NM,New Mexico,2085109,5
+36,NY,New York,19795791,29
+37,NC,North Carolina,10042802,15
+38,ND,North Dakota,756927,3
+39,OH,Ohio,11613423,18
+40,OK,Oklahoma,3911338,7
+41,OR,Oregon,4028977,7
+42,PA,Pennsylvania,12802503,20
+44,RI,Rhode Island,1056298,4
+45,SC,South Carolina,4896146,9
+46,SD,South Dakota,858469,3
+47,TN,Tennessee,6600299,11
+48,TX,Texas,27469114,38
+49,UT,Utah,2995919,6
+50,VT,Vermont,626042,3
+51,VA,Virginia,8382993,13
+53,WA,Washington,7170351,12
+54,WV,West Virginia,1844128,5
+55,WI,Wisconsin,5771337,10
+56,WY,Wyoming,586107,3
