@@ -6,7 +6,7 @@ var hover_state = -1;
 
 var color = d3.scale.pow(5)
     .domain([.25, 4])
-    .range(["#b7a68b", "#4e8ab2"]);
+    .range(["#b2974e", "#4e8ab2"]);
 
 var projection = d3.geo.albersUsa()
     .scale(1000)
@@ -97,7 +97,13 @@ function initialize(data) {
         update();
         tip.show(d);
       })
-      .on('mouseout', tip.hide);
+      .on('mouseout', function(d) {
+        if(hover_state == d.id) {
+          hover_state = -1;
+          update();
+        }
+        tip.hide(d);
+      });
   });
 }
 
