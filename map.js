@@ -91,6 +91,7 @@ function initialize(data) {
       .on("click", function(d) {
         calculateRelativeVoterPower(d.id);
         update();
+        tip.show(d);
       })
       .on('mouseover', function(d) {
         hover_state = d.id;
