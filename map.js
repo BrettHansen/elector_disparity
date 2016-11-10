@@ -2,10 +2,11 @@ var width = 960;
 var height = 500;
 var state_data = new Object();
 var target_state = 1;
+var hover_state = -1;
 
-var color = d3.scale.pow(2)
+var color = d3.scale.pow(5)
     .domain([.25, 4])
-    .range(["#d8b365", "#5ab4ac"]);
+    .range(["#b7a68b", "#4e8ab2"]);
 
 var projection = d3.geo.albersUsa()
     .scale(1000)
@@ -17,6 +18,29 @@ var path = d3.geo.path()
 var svg = d3.select("#map").append("svg")
     .attr("width", width)
     .attr("height", height);
+
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([0, 0])
+  .html(function(d) {
+    return  "A voter in <i>" + state_data[d.id].name +
+            "</i> is the same as <br><span style=\"color: #ff2222;\">" + Math.floor(state_data[d.id].rel_power * 100) / 100.0 + 
+            "</span> voter" + (state_data[d.id].rel_power == 1 ? "" : "s") + " in <i>" + state_data[target_state].name + "</i>.";
+  });
+
+function stroke(d) {
+  if(d.id == target_state) {
+    d3.select(this).moveToFront();
+    return "#000000";
+  }
+  if(d.id == hover_state) {
+    d3.select(this).moveToFront();
+    return "#222222";
+  }
+  return "#ffffff";
+}
+
+svg.call(tip);
 
 d3.selection.prototype.moveToFront = function() {
   return this.each(function(){
@@ -63,17 +87,17 @@ function initialize(data) {
       .style("fill", function(d) {
         return color(state_data[d.id].rel_power);
       })
-      .style("stroke", function(d) {
-        if(d.id == target_state) {
-          d3.select(this).moveToFront();
-          return "#000000";
-        }
-        return "#ffffff";
-      })
+      .style("stroke", stroke)
       .on("click", function(d) {
         calculateRelativeVoterPower(d.id);
         update();
-      });
+      })
+      .on('mouseover', function(d) {
+        hover_state = d.id;
+        update();
+        tip.show(d);
+      })
+      .on('mouseout', tip.hide);
   });
 }
 
@@ -83,11 +107,5 @@ function update() {
     .style("fill", function(d) {
       return color(state_data[d.id].rel_power);
     })
-    .style("stroke", function(d) {
-      if(d.id == target_state) {
-        d3.select(this).moveToFront();
-        return "#000000";
-      }
-      return "#ffffff";
-    });
+    .style("stroke", stroke);
 }
